@@ -1,7 +1,7 @@
 require 'pry'
 
 class School
-    attr_accessor :name, :roster, :student
+    attr_accessor :name, :roster
 
     def initialize(name)
         @name = name
@@ -9,14 +9,12 @@ class School
     end 
     
     def add_student(name, num)
-        if !@roster[num]
-            @roster[num] = []
-        end
+        @roster[num] ||= []
         @roster[num] << name
     end
 
     def grade(grade)
-        @roster.select {|key, value| return value if key == grade }
+        @roster[grade]
     end
     
     def sort
