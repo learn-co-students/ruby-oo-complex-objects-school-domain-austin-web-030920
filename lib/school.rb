@@ -17,7 +17,8 @@ class School
     end
 
     def sort
-        @roster.map{|k,v| v.sort!}
-        @roster
+        #@roster.map{|k,v| v.sort!}
+        #roster
+        (@roster.map{|k,v| [k, v.sort]}).to_h
     end
 end
